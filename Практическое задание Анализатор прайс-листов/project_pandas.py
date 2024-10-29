@@ -45,17 +45,26 @@ class PriceMachine:
                     field_list = data_.columns.values
                     print(f'Список полей: {field_list}')
                     for field in field_list:
-                        # Здесь можно организовать цикл по WORD_DICT, это сократит код, и добавит
-                        # универсальности в случае, если у нас добавятся еще поля, но будет менее
-                        # читаемо, поэтому оставила простой перебор
-                        if field in WORD_DICT['name']:
-                            data_ = data_.rename(columns={field: 'name'})
-                        elif field in WORD_DICT['price']:
-                            data_ = data_.rename(columns={field: 'price'})
-                        elif field in WORD_DICT['weight']:
-                            data_ = data_.rename(columns={field: 'weight'})
+                        # Здесь организовала цикл по WORD_DICT, это сократит код, и добавит
+                        # универсальности в случае, если у нас добавятся еще поля
+                        # Код закоментированный ниже заменен на цикл for - else
+                        #
+                        # if field in WORD_DICT['name']:
+                        #     data_ = data_.rename(columns={field: 'name'})
+                        # elif field in WORD_DICT['price']:
+                        #     data_ = data_.rename(columns={field: 'price'})
+                        # elif field in WORD_DICT['weight']:
+                        #     data_ = data_.rename(columns={field: 'weight'})
+                        # else:
+                        #     data_ = data_.drop(field, axis=1)
+
+                        for k, v in WORD_DICT.items():
+                            if field in v:
+                                data_ = data_.rename(columns={field: k})
+                                break
                         else:
                             data_ = data_.drop(field, axis=1)
+
                     data_['price_kg'] = round(data_['price'] / data_['weight'], 2)
                     data_['file_name'] = str(fl_)
                     if len(self.data) == 0:
