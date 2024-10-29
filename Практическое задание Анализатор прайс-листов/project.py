@@ -66,7 +66,7 @@ class PriceMachine:
 
     def export_to_html(self, fname='output.html'):
         """
-        Вфвод результатов в HTML-файл
+        Вывод результатов в HTML-файл
         """
         result = '''
         <!DOCTYPE html>
@@ -118,6 +118,9 @@ class PriceMachine:
         return self.result
 
     def print_result(self):
+        """
+        Печать в виде таблицы
+        """
         print('-' * 103)
         print(f'| {"№":^4} | {"Название":^40} | {"Цена":^10} | {"Вес":^5} | {"Файл":^15} | {"Цена за кг.":^10}|\n',
               '-'*103, sep='')
