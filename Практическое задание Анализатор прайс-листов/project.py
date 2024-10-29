@@ -72,6 +72,7 @@ class PriceMachine:
         <!DOCTYPE html>
         <html>
         <head>
+            <meta charset="UTF-8">
             <title>Позиции продуктов</title>
         </head>
         <body>
