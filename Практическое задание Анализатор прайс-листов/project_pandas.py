@@ -155,6 +155,5 @@ if __name__ == '__main__':
 
     html_flag = input('Вывести данные последнего запроса в HTML-файл (Y/N)? ')
     if html_flag.lower() != 'n':
-        pm.export_to_html()
+        print('Результат выгрузки HTML-файла: ', pm.export_to_html())
     print('the end')
-    print('Результат выгрузки HTML-файла: ', pm.export_to_html())
