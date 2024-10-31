@@ -38,16 +38,20 @@ else:
 ```mermaid
 ---
 config:
+  layout: elk
   look: handDrawn
   theme: neutral
+  elk:
+    mergeEdges: false
+    nodePlacementStrategy: LINEAR_SEGMENTS
 ---
-flowchart LR
-  input[Ввод каталога с файлами данных] -- "загрузка файлов" --> output[Вывод сводного результата]
+flowchart TB
+  input[Ввод каталога с файлами данных] --> |загрузка файлов| output[Вывод сводного результата]
   output --> input_search[Ввод строки для поиска]
   input_search --> if_search{Завершить поиск?}
   if_search --> |Yes| output_search_html[Вывод результата поиска в html-файл]
-  if_search -- "No" --> search_str[осуществить поиск]
-  search_str -- "поиск"  --> output_search[Вывод результата поиска]
+  if_search --> |No| search_str[Осуществить поиск]
+  search_str --> |поиск| output_search[Вывод результата поиска]
   output_search_html --> end_kod[Завершение кода]
   output_search --> input_search
 ```
