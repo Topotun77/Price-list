@@ -55,6 +55,11 @@ flowchart TB
   output_search_html --> end_kod[Завершение кода]
   output_search --> input_search
 ```
+### Скриншот консольного вывода: 
+![alt text](https://github.com/Topotun77/Price-list/blob/master/Price-list/ScreenShots/n04-pandas.JPG?raw=true)
+
+### Скриншот html-вывода:
+![alt text](https://github.com/Topotun77/Price-list/blob/master/Price-list/ScreenShots/n05-html.JPG?raw=true)
 
 ### Ниже приведен текст технического задания:
 
